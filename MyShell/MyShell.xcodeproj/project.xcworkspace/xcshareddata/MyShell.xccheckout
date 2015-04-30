@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>032377CF-8459-4A56-8FF8-1B3026ABFFD5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyShell</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FBB3CF9A9C56D3D1F3859593CD76D1625FCB90A5</key>
+		<string>https://github.com/YiZhuoChen/MyShell.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyShell/MyShell.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FBB3CF9A9C56D3D1F3859593CD76D1625FCB90A5</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/YiZhuoChen/MyShell.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FBB3CF9A9C56D3D1F3859593CD76D1625FCB90A5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FBB3CF9A9C56D3D1F3859593CD76D1625FCB90A5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>C</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -17,7 +17,7 @@
 
 #pragma mark - Global Variables
 
-char line[MAX_SIZE];    //get user input from commond line
+char line[MAX_SIZE];    //get user input from command line
 int flag;   //support relocation or not? ie. ls > result.txt
 int back_flag;  //run the progress in the back?
 
@@ -29,16 +29,16 @@ int back_flag;  //run the progress in the back?
 void my_exit();
 
 /**
- *  commond "cd", go to target directory
+ *  command "cd", go to target directory
  *
  *  @param target target directory
  */
 void my_chdir(char *target);
 
 /**
- *  other commonds. Let linux to run it.
+ *  other commands. Let linux to run it.
  */
-void my_unix(char *commond);
+void my_unix(char *command);
 
 
 #pragma mark - Main
@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
     //default not in the back
     back_flag = 0;
     
-    char *commond;
+    char *command;
     
     
     
@@ -64,17 +64,17 @@ int main(int argc, const char * argv[]) {
         fgets(line, MAX_SIZE, stdin);   //read from stdin
         //split user's input and get the first "string"
         //here use " ", "\n", "\t"... as the delimiter
-        commond = strtok(line, " \n\t();");
-        if (commond == NULL) {
+        command = strtok(line, " \n\t();");
+        if (command == NULL) {
             continue;       //if user input nothing, then ingore it.
-        } else if (strcmp(commond, "exit") == 0) {
+        } else if (strcmp(command, "exit") == 0) {
             //if user input "exit" the exit the application.
             my_exit();
-        } else if (strcmp(commond, "cd") == 0) {
-            my_chdir(commond);
+        } else if (strcmp(command, "cd") == 0) {
+            my_chdir(command);
         } else {
-            //let system handle other commonds
-            my_unix(commond);
+            //let system handle other commands
+            my_unix(command);
         }
     }
     
@@ -110,7 +110,7 @@ void my_chdir(char *target) {
     }
 }
 
-void my_unix(char *commond) {
+void my_unix(char *command) {
     //    printf("other");
     
     pid_t pid;
@@ -122,25 +122,25 @@ void my_unix(char *commond) {
     int close_status;   //close file success or not?
     int wait_arg;       //the arg of wait();
     
-    //add first part of commond to args.
-    args[0] = commond;
+    //add first part of command to args.
+    args[0] = command;
     
-    commond = strtok(NULL, " \n\t();");
-    while (commond != NULL) {
+    command = strtok(NULL, " \n\t();");
+    while (command != NULL) {
         
-        if (strcmp(commond, ">") == 0) {
+        if (strcmp(command, ">") == 0) {
             flag = 1;   //relocation
-        } else if (strcmp(commond, "&") == 0) {
+        } else if (strcmp(command, "&") == 0) {
             back_flag = 1;
-            commond = strtok(NULL, " \n\t();");
+            command = strtok(NULL, " \n\t();");
         }
         
         count++;
-        args[count] = commond;
-        commond = strtok(NULL, " \n\t();");
+        args[count] = command;
+        command = strtok(NULL, " \n\t();");
     }
     
-    //the end of commond
+    //the end of command
     count++;
     args[count] = NULL;
     
@@ -154,7 +154,7 @@ void my_unix(char *commond) {
     if (pid == 0) {
         //child progress
         
-        //psu-relocate, just put commonds to file.
+        //psu-relocate, just put commands to file.
         if (flag == 1) {
             //args[count - 1] is the last argument, which represent the file to relocate
             file = freopen(args[count - 1], "w+", stdout);
